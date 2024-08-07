@@ -187,7 +187,8 @@ args = parser.parse_args()
 if args.verbose:
     logging.basicConfig(level=logging.INFO)
 
-if __name__ == "__main__":
+
+def serve():
     print("Launching server with routers:", args.routers)
     uvicorn.run(
         "routellm.openai_server:app",
@@ -195,3 +196,7 @@ if __name__ == "__main__":
         host="0.0.0.0",
         workers=args.workers,
     )
+
+
+if __name__ == "__main__":
+    serve()
